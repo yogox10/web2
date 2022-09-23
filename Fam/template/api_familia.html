@@ -1,0 +1,23 @@
+    {% extends "familia.html"%}
+
+    {% load static %}
+
+    {% block contenido %}
+    
+    <br>
+    <h2>Registrar pariente:</h2>
+    {% if formulario.errors %}
+    <p style="color: red;">Estan mal los datos, revisar</p>
+    {% endif %}
+
+    <form method="POST">{% csrf_token %}
+        <table>
+            {{formulario.as_table}}
+        </table>
+        <br>
+        <button type="submit" class="btn btn-primary btndj">Registrar</button>
+    </form>
+     {% endblock %}
+
+
+   

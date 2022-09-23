@@ -1,0 +1,29 @@
+    {% extends "familia.html"%}
+
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{%static 'css/myestilo.css'%}">
+
+    {% block contenido %}    
+    <br>    
+    <h5>Buscar parientes por nombre:</h5><br>  
+    <div>
+        <form class="formDataFamilias" action="/Fam/buscar_pariente/" method="GET">
+            <input type="text" name="nombre" placeholder="nombre">
+            <button type="submit" class="btn btn-primary btndj">Buscar</button>
+        </form>
+    </div>
+
+        <div>
+        {% if familia %}
+        <ul>
+            {% for fam in familia %}
+            <li>{{fam.nombre}}</li>
+            <li>{{fam.edad}}</li>
+            <li>{{fam.nacimiento}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+
+    {% endblock %}
